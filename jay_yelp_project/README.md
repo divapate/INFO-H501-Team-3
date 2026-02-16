@@ -109,7 +109,6 @@ PA
 - SQLite
 - Matplotlib
 - Git & GitHub
-- Terminal (zsh)
 
 ---
 
