@@ -44,19 +44,6 @@ jay_yelp_project/
 ├── README.md
 └── .gitignore
 
-## How to Run
-
-Clone the repository:
-git clone https://github.com/divapate/INFO-H501-Team-3.git
-
-Switch to Jay branch:
-git checkout Jay
-
-Install dependencies:
-pip install -r requirements.txt
-
-Run the main script:
-python src/your_main_script.py
 
 ## Key Takeaways
 - NLP techniques effectively classify sentiment from text
