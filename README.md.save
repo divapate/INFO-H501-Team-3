@@ -1,0 +1,84 @@
+INFO-H501 – Team 3
+# INFO-H501 Team 3 – [Your Project Title]
+
+## 📌 Project Overview
+Short 2–3 sentence explanation of:
+- What problem you are solving
+- Why it matters
+- What your solution does
+
+---
+
+## 👥 Team Members
+- Your Name
+- Teammate 1
+- Teammate 2
+
+---
+
+## 🛠 Tech Stack
+- Python
+- Pandas
+- NumPy
+- Matplotlib / Seaborn
+- (Add others you use)
+
+---
+
+## 📂 Project Structure
+Author: Jay Kelley
+
+## Project Overview
+This project analyzes Yelp review data to classify customer sentiment using machine learning techniques. The objective is to determine whether a review expresses positive or negative sentiment based solely on textual content.
+
+Using natural language processing (NLP) methods and supervised learning models, this project demonstrates the complete data science workflow: data cleaning, feature engineering, model training, evaluation, and visualization.
+
+## Dataset
+The dataset consists of Yelp business reviews from selected U.S. states (Indiana and Pennsylvania). Each review includes review text, star rating, and location metadata.
+
+For modeling purposes:
+- High star ratings were labeled as positive
+- Low star ratings were labeled as negative
+
+## Methods & Approach
+
+1. Data Cleaning
+- Removed null and duplicate entries
+- Standardized text formatting
+- Filtered selected geographic regions
+
+2. Text Preprocessing
+- Tokenization
+- Stopword removal
+- Lowercasing
+- TF-IDF vectorization
+
+3. Model Training
+- Logistic Regression classifier
+- Train/test split evaluation
+- Performance measured using accuracy and confusion matrix
+
+## Results
+- Achieved strong classification accuracy on test data
+- Clear separation between positive and negative sentiment
+- Created visualizations for top cities and state-level review distribution
+
+## Project Structure
+jay_yelp_project/
+├── data/
+├── src/
+├── README.md
+└── .gitignore
+
+
+## Key Takeaways
+- NLP techniques effectively classify sentiment from text
+- Logistic Regression performs well for binary classification
+- A structured pipeline improves reproducibility and clarity
+
+## Future Improvements
+- Test additional models (SVM, Random Forest, Neural Networks)
+- Implement cross-validation
+- Expand dataset coverage
+- Deploy as a simple web application
+
