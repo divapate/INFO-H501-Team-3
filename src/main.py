@@ -1,24 +1,18 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+top_categories = (
+    df.groupby("category")["stars"]
+    .mean()
+    .sort_values(ascending=False)
+    .head(10)
+)
 
-sns.set_style("whitegrid")
+ax = top_categories.plot(kind="bar", color="#145A32")
 
-plt.rcParams.update({
-    "figure.figsize": (10,6),
-    "axes.titlesize": 18,
-    "axes.labelsize": 15,
-    "xtick.labelsize": 13,
-    "ytick.labelsize": 13,
-    "legend.fontsize": 13
-})
+ax.set_title("Top 10 Categories by Average Rating")
+ax.set_xlabel("Business Category")
+ax.set_ylabel("Average Rating")
 
-plt.plot(x, y, linewidth=3)
-
-ax.set_title("Sales Over Time")
-ax.set_xlabel("Date")
-ax.ylabel("Revenue ($)")
+plt.xticks(rotation=45, ha="right")
 
 plt.tight_layout()
-plt.savefig("docs/sales_over_time.png", dpi=300)
+plt.savefig("docs/top_categories.png", dpi=300)
 plt.close()
