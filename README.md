@@ -1,6 +1,5 @@
 # Yelp Review Sentiment Analysis
 INFO-H501 – Team 3
-Author: Jay Kelley
 
 ## Project Overview
 This project analyzes Yelp review data to classify customer sentiment using machine learning techniques. The objective is to determine whether a review expresses positive or negative sentiment based solely on textual content.
@@ -36,14 +35,6 @@ For modeling purposes:
 - Achieved strong classification accuracy on test data
 - Clear separation between positive and negative sentiment
 - Created visualizations for top cities and state-level review distribution
-
-## Project Structure
-jay_yelp_project/
-├── data/
-├── src/
-├── README.md
-└── .gitignore
-
 
 ## Key Takeaways
 - NLP techniques effectively classify sentiment from text
