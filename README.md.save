@@ -1,7 +1,7 @@
 INFO-H501 – Team 3
-# INFO-H501 Team 3 – [Your Project Title]
+# INFO-H501 Team 3 – Yelp Dataset Application 
 
-## 📌 Project Overview
+## Project Overview
 Short 2–3 sentence explanation of:
 - What problem you are solving
 - Why it matters
@@ -9,23 +9,22 @@ Short 2–3 sentence explanation of:
 
 ---
 
-## 👥 Team Members
-- Your Name
-- Teammate 1
-- Teammate 2
+## Team Members
+- Jay
+- Yamini
+- Divya
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - Python
 - Pandas
 - NumPy
 - Matplotlib / Seaborn
-- (Add others you use)
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 Author: Jay Kelley
 
 ## Project Overview
@@ -62,13 +61,6 @@ For modeling purposes:
 - Achieved strong classification accuracy on test data
 - Clear separation between positive and negative sentiment
 - Created visualizations for top cities and state-level review distribution
-
-## Project Structure
-jay_yelp_project/
-├── data/
-├── src/
-├── README.md
-└── .gitignore
 
 
 ## Key Takeaways
