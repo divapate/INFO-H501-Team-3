@@ -1,0 +1,31 @@
+import json
+from pathlib import Path
+
+input_file = Path(r"C:\Users\divya\Downloads\Yelp-JSON\Yelp JSON\yelp_dataset\yelp_academic_dataset_review.json")
+output_file = Path(r"C:\Users\divya\Downloads\Yelp-JSON\Yelp JSON\yelp_dataset\yelp_academic_dataset_review_no_text.json")
+
+if not input_file.exists():
+    print(f"Input file not found: {input_file}")
+    raise SystemExit(1)
+
+count = 0
+removed = 0
+
+with input_file.open('r', encoding='utf-8') as fin, output_file.open('w', encoding='utf-8') as fout:
+    for line in fin:
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            obj = json.loads(line)
+        except json.JSONDecodeError:
+            # skip malformed lines
+            continue
+        if 'text' in obj:
+            obj.pop('text', None)
+            removed += 1
+        fout.write(json.dumps(obj, ensure_ascii=False) + '\n')
+        count += 1
+
+print(f"Processed {count} reviews; removed 'text' from {removed} records.")
+print(f"Output saved to: {output_file}")
