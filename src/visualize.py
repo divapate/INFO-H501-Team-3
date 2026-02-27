@@ -1,42 +1,23 @@
-import sqlite3
+import os
 import matplotlib.pyplot as plt
-from pathlib import Path
+import pandas as pd
 
-# Correct base directory
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
+def ensure_output_directory():
+    os.makedirs("assets/images", exist_ok=True)
 
-DB_PATH = DATA_DIR / "yelp_IN_PA.db"
-OUTPUT_PATH = DATA_DIR / "state_distribution.png"
+def plot_state_distribution(df):
+    ensure_output_directory()
 
-print("Generating visualization...")
+    state_counts = df["state"].value_counts()
 
-# Connect to database
-conn = sqlite3.connect(DB_PATH)
-cursor = conn.cursor()
+    plt.figure(figsize=(10, 6))
+    state_counts.plot(kind="bar")
 
-cursor.execute("""
-SELECT state, COUNT(*) 
-FROM businesses 
-GROUP BY state
-""")
+    plt.title("Distribution of Yelp Businesses by State", fontsize=14)
+    plt.xlabel("State", fontsize=12)
+    plt.ylabel("Number of Businesses", fontsize=12)
+    plt.xticks(rotation=45)
 
-data = cursor.fetchall()
-
-states = [row[0] for row in data]
-counts = [row[1] for row in data]
-
-# Create bar chart
-plt.figure()
-plt.bar(states, counts)
-plt.xlabel("State")
-plt.ylabel("Number of Businesses")
-plt.title("Business Distribution in IN and PA")
-
-plt.savefig(OUTPUT_PATH)
-plt.close()
-
-conn.close()
-
-print("Visualization created successfully.")
-
+    plt.tight_layout()
+    plt.savefig("assets/images/state_distribution.png")
+    plt.close()
