@@ -10,18 +10,23 @@ def ensure_output_directory():
 def plot_state_distribution(df):
     ensure_output_directory()
 
-    state_counts = df["state"].value_counts()
+    state_counts = df["state"].value_counts().sort_index()
+    total = state_counts.sum()
 
     plt.figure(figsize=(8, 5))
-    state_counts.plot(kind="bar")
+    ax = state_counts.plot(kind="bar")
 
-    plt.title("Distribution of Yelp Businesses (IN & PA)")
+    plt.title("Business Distribution by State (IN & PA)", fontsize=14, weight="bold")
     plt.xlabel("State")
     plt.ylabel("Number of Businesses")
-    plt.xticks(rotation=0)
+
+    # Add percentage annotations
+    for i, value in enumerate(state_counts):
+        percentage = (value / total) * 100
+        ax.text(i, value, f"{percentage:.1f}%", ha="center", va="bottom")
 
     plt.tight_layout()
-    plt.savefig("assets/images/state_distribution.png")
+    plt.savefig("assets/images/state_distribution.png", dpi=300)
     plt.close()
 
 def plot_star_distribution(df):
@@ -41,22 +46,25 @@ def plot_star_distribution(df):
 def plot_top_categories(df):
     ensure_output_directory()
 
-    # Categories are comma-separated strings
     categories = df["categories"].dropna().str.split(", ")
     exploded = categories.explode()
 
     top_categories = exploded.value_counts().head(10)
+    total = top_categories.sum()
 
     plt.figure(figsize=(10, 6))
-    top_categories.plot(kind="bar")
+    ax = top_categories.sort_values().plot(kind="barh")
 
-    plt.title("Top 10 Business Categories (IN & PA)")
-    plt.xlabel("Category")
-    plt.ylabel("Count")
-    plt.xticks(rotation=45, ha="right")
+    for i, value in enumerate(top_categories.sort_values()):
+        percentage = (value / total) * 100
+        ax.text(value, i, f"{percentage:.1f}%", va="center")
+
+    plt.title("Top 10 Business Categories (IN & PA)", fontsize=14, weight="bold")
+    plt.xlabel("Count")
+    plt.ylabel("Category")
 
     plt.tight_layout()
-    plt.savefig("assets/images/top_categories.png")
+    plt.savefig("assets/images/top_categories.png", dpi=300)
     plt.close()
 
 def plot_dataset_comparison(full_df, filtered_df):
@@ -66,11 +74,17 @@ def plot_dataset_comparison(full_df, filtered_df):
     labels = ["Full Dataset", "IN & PA Filtered"]
 
     plt.figure(figsize=(6, 5))
-    plt.bar(labels, sizes)
+    ax = plt.bar(labels, sizes)
 
-    plt.title("Dataset Size Comparison")
+    total = sizes[0]
+
+    for i, value in enumerate(sizes):
+        percentage = (value / total) * 100
+        plt.text(i, value, f"{percentage:.1f}%", ha="center", va="bottom")
+
+    plt.title("Dataset Size Comparison", fontsize=14, weight="bold")
     plt.ylabel("Number of Businesses")
 
     plt.tight_layout()
-    plt.savefig("assets/images/dataset_comparison.png")
+    plt.savefig("assets/images/dataset_comparison.png", dpi=300)
     plt.close()
