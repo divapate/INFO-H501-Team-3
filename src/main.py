@@ -1,18 +1,23 @@
-top_categories = (
-    df.groupby("category")["stars"]
-    .mean()
-    .sort_values(ascending=False)
-    .head(10)
-)
+import pandas as pd
+from visualize import plot_state_distribution
 
-ax = top_categories.plot(kind="bar", color="#145A32")
+def load_data():
+    try:
+        df = pd.read_json("data/yelp_in_pa_business.json", lines=True)
+        print("Data loaded successfully.")
+        return df
+    except Exception as e:
+        print("Error loading data:", e)
+        return None
 
-ax.set_title("Top 10 Categories by Average Rating")
-ax.set_xlabel("Business Category")
-ax.set_ylabel("Average Rating")
+def main():
+    df = load_data()
+    
+    if df is not None:
+        plot_state_distribution(df)
+        print("Visualization saved to assets/images/")
+    else:
+        print("Data could not be loaded.")
 
-plt.xticks(rotation=45, ha="right")
-
-plt.tight_layout()
-plt.savefig("docs/top_categories.png", dpi=300)
-plt.close()
+if __name__ == "__main__":
+    main()
