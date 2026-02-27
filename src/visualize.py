@@ -2,6 +2,8 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
+plt.style.use("seaborn-v0_8-whitegrid")
+
 def ensure_output_directory():
     os.makedirs("assets/images", exist_ok=True)
 
