@@ -1,4 +1,8 @@
 # Yelp Business Analysis: Indiana & Pennsylvania
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Project-Academic-orange)
+![Data](https://img.shields.io/badge/Data-Yelp%20Academic%20Dataset-lightgrey)
 
 ## Overview
 
@@ -16,13 +20,13 @@ The goal is to:
 ## Dataset
 
 Source: Yelp Academic Dataset
-
+This visualization demonstrates the reduction in dataset size after filtering for Indiana and Pennsylvania. The comparison highlights the methodological narrowing of scope for focused regional analysis.
 We:
 1. Loaded the full business dataset
 2. Filtered businesses located in Indiana and Pennsylvania
 3. Stored the filtered dataset
 4. Generated statistical visualizations
-
+![Dataset Comparison](assets/images/dataset_comparison.png)
 ---
 
 ## Methodology
