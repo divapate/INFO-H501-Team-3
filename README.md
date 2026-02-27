@@ -78,18 +78,6 @@ Identifies the most common industries within the filtered dataset.
 
 ---
 
-## Project Structure
-
-```
-INFO-H501-Team-3/
-│
-├── data/                 # Raw datasets (ignored in Git)
-├── src/                  # Processing and visualization scripts
-├── assets/images/        # Generated visual outputs
-├── requirements.txt
-└── README.md
-```
-
 ## Academic Focus
 
 This project emphasizes:
