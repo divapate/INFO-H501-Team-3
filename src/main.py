@@ -3,7 +3,9 @@ from visualize import (
     plot_state_distribution,
     plot_star_distribution,
     plot_top_categories,
-    plot_dataset_comparison
+    plot_dataset_comparison,
+    interactive_state_distribution,
+    generate_summary_table
 )
 
 def load_full_data():
@@ -17,12 +19,21 @@ def main():
         full_df = load_full_data()
         filtered_df = load_filtered_data()
 
+        # Static visualizations
         plot_state_distribution(filtered_df)
         plot_star_distribution(filtered_df)
         plot_top_categories(filtered_df)
         plot_dataset_comparison(full_df, filtered_df)
 
-        print("All visualizations generated successfully.")
+        # Statistical summary
+        summary_df = generate_summary_table(filtered_df)
+        print("\nStatistical Summary:")
+        print(summary_df)
+
+        # Interactive visualization
+        interactive_state_distribution(filtered_df)
+
+        print("\nAll visualizations generated successfully.")
 
     except Exception as e:
         print("Error:", e)
