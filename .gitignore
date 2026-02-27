@@ -15,3 +15,5 @@ venv/
 
 # Generated images
 *.png
+
+assets/images/*.html
