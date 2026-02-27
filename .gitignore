@@ -1,33 +1,17 @@
-# Jupyter Notebook
-**.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
 # Python
-cython_debug/
-*__pycache__/
-*.py[cod]
+__pycache__/
+*.pyc
+*.pyo
 
-# data
-data
-*.zip
-*.csv
-*.db
-*.graphml
-# *.pickle
-
-# notebooks
-*scratch.ipynb
-# *.ipynb
-
-# OS
-**.DS_Store
-*.idea
-.vscode
-
-# project
+# Virtual environments
+venv/
 .env
-.streamlit
-environment.yml
+
+# Database files
+*.db
+
+# Large data files
+*.json
+
+# Generated images
+*.png
