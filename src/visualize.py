@@ -1,6 +1,23 @@
 import os
 import matplotlib.pyplot as plt
 import pandas as pd
+import plotly.express as px
+
+def interactive_state_distribution(df):
+    ensure_output_directory()
+
+    state_counts = df["state"].value_counts().reset_index()
+    state_counts.columns = ["State", "Count"]
+
+    fig = px.bar(
+        state_counts,
+        x="State",
+        y="Count",
+        title="Interactive Business Distribution (IN & PA)",
+        text_auto=True
+    )
+
+    fig.write_html("assets/images/interactive_state_distribution.html")
 
 plt.style.use("seaborn-v0_8-whitegrid")
 
