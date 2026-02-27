@@ -128,6 +128,17 @@ This project emphasizes:
 
 ---
 
+## Key Findings
+
+- **Pennsylvania contains a higher concentration of Yelp businesses** compared to Indiana within the filtered dataset.
+- **Most businesses cluster around 3.5 to 4.5 star ratings**, indicating generally positive consumer experiences.
+- The **Top 10 business categories dominate a significant share** of the dataset, highlighting strong industry clustering in food, retail, and service sectors.
+- Filtering from the full Yelp dataset to only Indiana and Pennsylvania significantly reduced dataset size, demonstrating the impact of geographic scoping in data analysis.
+- The statistical summary shows relatively stable rating variance, suggesting consistent review behavior across both states.
+
+These findings support the importance of regional filtering when performing targeted business analysis.
+---
+
 ## Contributors
 
 - Jay Kelley, Yamini Hariharan and Divya Patel
