@@ -40,8 +40,7 @@ We:
 All visualizations are reproducible by running:
 
 ```bash
-python3 src/main.py
-```
+
 
 ---
 
@@ -90,31 +89,6 @@ INFO-H501-Team-3/
 ├── requirements.txt
 └── README.md
 ```
-
----
-
-## How to Run
-
-Clone the repository:
-
-```bash
-git clone https://github.com/divapate/INFO-H501-Team-3.git
-cd INFO-H501-Team-3
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run analysis:
-
-```bash
-python3 src/main.py
-```
-
----
 
 ## Academic Focus
 
