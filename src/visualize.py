@@ -88,3 +88,20 @@ def plot_dataset_comparison(full_df, filtered_df):
     plt.tight_layout()
     plt.savefig("assets/images/dataset_comparison.png", dpi=300)
     plt.close()
+
+def generate_summary_table(df):
+    ensure_output_directory()
+
+    summary = {
+        "Total Businesses": len(df),
+        "Mean Star Rating": round(df["stars"].mean(), 2),
+        "Median Star Rating": round(df["stars"].median(), 2),
+        "Star Rating Std Dev": round(df["stars"].std(), 2),
+        "Indiana Businesses": len(df[df["state"] == "IN"]),
+        "Pennsylvania Businesses": len(df[df["state"] == "PA"])
+    }
+
+    summary_df = pd.DataFrame(summary.items(), columns=["Metric", "Value"])
+    summary_df.to_csv("assets/images/statistical_summary.csv", index=False)
+
+    return summary_df
