@@ -116,3 +116,18 @@ These findings support the importance of regional filtering when performing targ
 
 - Jay Kelley, Yamini Hariharan and Divya Patel
 - INFO-H501 Team 3
+
+---
+
+## Data Setup
+
+Due to file size limitations, raw Yelp datasets are not included in this repository.
+
+Place the following files inside the `data/` directory before running:
+
+- yelp_academic_dataset_business.json
+- yelp_in_pa_business.json
+
+Run:
+python3 src/main.py
+
