@@ -89,6 +89,17 @@ This project emphasizes:
 - Separation of raw data and generated outputs
 
 ---
+## Data Setup
+
+Due to file size limitations, raw Yelp datasets are not included in this repository.
+
+Please manually place:
+- yelp_academic_dataset_business.json
+- yelp_in_pa_business.json
+
+Inside the `data/` directory before running:
+python3 src/main.py
+
 
 ## Key Findings
 
