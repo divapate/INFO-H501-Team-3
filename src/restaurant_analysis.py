@@ -14,19 +14,20 @@ def load_restaurant_data():
     )
 
 def plot_review_count_distribution(df):
-def plot_review_count_distribution(df):
     ensure_output_directory()
 
-    plt.figure(figsize=(8,5))
+    plt.figure(figsize=(8, 5))
 
-    for state, color in zip(["IN", "PA"], ["blue", "red"]):
+    colors = {"IN": "blue", "PA": "red"}
+
+    for state in df["state"].unique():
         subset = df[df["state"] == state]
         plt.hist(
             subset["total_reviews"],
             bins=30,
             alpha=0.5,
             label=state,
-            color=color
+            color=colors.get(state, "gray")
         )
 
     plt.title("Review Count Distribution (IN vs PA)")
@@ -41,7 +42,7 @@ def plot_review_count_distribution(df):
 def plot_top_reviewed_restaurants(df):
     ensure_output_directory()
 
-    plt.figure(figsize=(10,6))
+    plt.figure(figsize=(10, 6))
 
     colors = {"IN": "blue", "PA": "red"}
 
@@ -56,6 +57,7 @@ def plot_top_reviewed_restaurants(df):
             top["name"],
             top["total_reviews"],
             color=colors[state],
+            alpha=0.7,
             label=state
         )
 
@@ -70,7 +72,7 @@ def plot_top_reviewed_restaurants(df):
 def plot_rating_vs_reviews(df):
     ensure_output_directory()
 
-    plt.figure(figsize=(8,5))
+    plt.figure(figsize=(8, 5))
 
     colors = {"IN": "blue", "PA": "red"}
 
