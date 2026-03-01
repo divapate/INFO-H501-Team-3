@@ -1,3 +1,4 @@
+#This file filters the resturants which are open i.e., is_open = 1 from the combined dataset obtained earlier for business and reviews
 import json
 
 input_file = "indy_philly_restaurant_aggregated.json"
@@ -16,5 +17,6 @@ with open(input_file, "r", encoding="utf-8") as infile, \
 # Replace original file
 import os
 os.replace(temp_file, input_file)
+
 
 print("Done! File updated to only include open restaurants.")
