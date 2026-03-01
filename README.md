@@ -77,6 +77,17 @@ Identifies the most common industries within the filtered dataset.
 ![Top Categories](assets/images/top_categories.png)
 
 ---
+Review Count Distribution
+
+Pennsylvania restaurants generally exhibit higher review volume compared to Indiana, indicating stronger Yelp engagement density in PA.
+
+Rating vs Review Count
+
+The correlation between review count and rating provides insight into whether popularity aligns with perceived quality.
+
+Average Reviews by State
+
+On average, Pennsylvania restaurants receive more reviews per establishment compared to Indiana, suggesting greater platform usage or urban density effects.
 
 ## Academic Focus
 
