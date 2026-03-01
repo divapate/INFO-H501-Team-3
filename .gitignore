@@ -17,3 +17,5 @@ venv/
 *.png
 
 assets/images/*.html
+
+.DS_Store
