@@ -14,14 +14,25 @@ def load_restaurant_data():
     )
 
 def plot_review_count_distribution(df):
+def plot_review_count_distribution(df):
     ensure_output_directory()
 
     plt.figure(figsize=(8,5))
-    df["total_reviews"].plot(kind="hist", bins=30)
 
-    plt.title("Distribution of Restaurant Review Counts")
+    for state, color in zip(["IN", "PA"], ["blue", "red"]):
+        subset = df[df["state"] == state]
+        plt.hist(
+            subset["total_reviews"],
+            bins=30,
+            alpha=0.5,
+            label=state,
+            color=color
+        )
+
+    plt.title("Review Count Distribution (IN vs PA)")
     plt.xlabel("Total Reviews")
     plt.ylabel("Number of Restaurants")
+    plt.legend()
 
     plt.tight_layout()
     plt.savefig("assets/images/review_count_distribution.png", dpi=300)
@@ -30,13 +41,27 @@ def plot_review_count_distribution(df):
 def plot_top_reviewed_restaurants(df):
     ensure_output_directory()
 
-    top10 = df.sort_values("total_reviews", ascending=False).head(10)
-
     plt.figure(figsize=(10,6))
-    plt.barh(top10["name"], top10["total_reviews"])
 
-    plt.title("Top 10 Most Reviewed Restaurants")
+    colors = {"IN": "blue", "PA": "red"}
+
+    for state in ["IN", "PA"]:
+        top = (
+            df[df["state"] == state]
+            .sort_values("total_reviews", ascending=False)
+            .head(5)
+        )
+
+        plt.barh(
+            top["name"],
+            top["total_reviews"],
+            color=colors[state],
+            label=state
+        )
+
+    plt.title("Top Reviewed Restaurants by State")
     plt.xlabel("Total Reviews")
+    plt.legend()
 
     plt.tight_layout()
     plt.savefig("assets/images/top_reviewed_restaurants.png", dpi=300)
@@ -46,11 +71,23 @@ def plot_rating_vs_reviews(df):
     ensure_output_directory()
 
     plt.figure(figsize=(8,5))
-    plt.scatter(df["total_reviews"], df["avg_stars"], alpha=0.5)
 
-    plt.title("Average Rating vs Total Reviews")
+    colors = {"IN": "blue", "PA": "red"}
+
+    for state in df["state"].unique():
+        subset = df[df["state"] == state]
+        plt.scatter(
+            subset["total_reviews"],
+            subset["avg_stars"],
+            alpha=0.5,
+            label=state,
+            color=colors.get(state, "gray")
+        )
+
+    plt.title("Average Rating vs Total Reviews (IN vs PA)")
     plt.xlabel("Total Reviews")
     plt.ylabel("Average Star Rating")
+    plt.legend()
 
     plt.tight_layout()
     plt.savefig("assets/images/rating_vs_reviews.png", dpi=300)
