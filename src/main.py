@@ -1,4 +1,5 @@
 import pandas as pd
+
 from visualize import (
     plot_state_distribution,
     plot_star_distribution,
@@ -6,6 +7,13 @@ from visualize import (
     plot_dataset_comparison,
     interactive_state_distribution,
     generate_summary_table
+)
+
+from restaurant_analysis import (
+    load_restaurant_data,
+    plot_review_count_distribution,
+    plot_top_reviewed_restaurants,
+    plot_rating_vs_reviews
 )
 
 def load_full_data():
@@ -16,22 +24,28 @@ def load_filtered_data():
 
 def main():
     try:
+        # Load datasets
         full_df = load_full_data()
         filtered_df = load_filtered_data()
 
-        # Static visualizations
+        # Business-level visualizations
         plot_state_distribution(filtered_df)
         plot_star_distribution(filtered_df)
         plot_top_categories(filtered_df)
         plot_dataset_comparison(full_df, filtered_df)
 
-        # Statistical summary
         summary_df = generate_summary_table(filtered_df)
         print("\nStatistical Summary:")
         print(summary_df)
 
-        # Interactive visualization
         interactive_state_distribution(filtered_df)
+
+        # Restaurant-level analysis
+        restaurant_df = load_restaurant_data()
+
+        plot_review_count_distribution(restaurant_df)
+        plot_top_reviewed_restaurants(restaurant_df)
+        plot_rating_vs_reviews(restaurant_df)
 
         print("\nAll visualizations generated successfully.")
 
