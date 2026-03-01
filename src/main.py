@@ -1,4 +1,5 @@
 import pandas as pd
+from restaurant_analysis import plot_average_reviews_by_state
 
 from visualize import (
     plot_state_distribution,
@@ -46,6 +47,7 @@ def main():
         plot_review_count_distribution(restaurant_df)
         plot_top_reviewed_restaurants(restaurant_df)
         plot_rating_vs_reviews(restaurant_df)
+        plot_average_reviews_by_state(restaurant_df)
 
         print("\nAll visualizations generated successfully.")
 

@@ -65,6 +65,10 @@ def plot_top_reviewed_restaurants(df):
     plt.xlabel("Total Reviews")
     plt.legend()
 
+    # Correlation calculation
+    correlation = df["total_reviews"].corr(df["avg_stars"])
+    print(f"\nCorrelation between total reviews and average rating: {correlation:.3f}")
+
     plt.tight_layout()
     plt.savefig("assets/images/top_reviewed_restaurants.png", dpi=300)
     plt.close()
@@ -93,4 +97,29 @@ def plot_rating_vs_reviews(df):
 
     plt.tight_layout()
     plt.savefig("assets/images/rating_vs_reviews.png", dpi=300)
+    plt.close()
+
+def plot_average_reviews_by_state(df):
+    ensure_output_directory()
+
+    avg_reviews = df.groupby("state")["total_reviews"].mean()
+
+    colors = {"IN": "blue", "PA": "red"}
+
+    plt.figure(figsize=(6,5))
+    bars = plt.bar(
+        avg_reviews.index,
+        avg_reviews.values,
+        color=[colors.get(state, "gray") for state in avg_reviews.index]
+    )
+
+    for i, value in enumerate(avg_reviews.values):
+        plt.text(i, value, f"{value:.1f}", ha="center", va="bottom")
+
+    plt.title("Average Review Count per Restaurant by State")
+    plt.xlabel("State")
+    plt.ylabel("Average Review Count")
+
+    plt.tight_layout()
+    plt.savefig("assets/images/avg_reviews_by_state.png", dpi=300)
     plt.close()
