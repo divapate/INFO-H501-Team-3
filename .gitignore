@@ -10,13 +10,9 @@ venv/
 # Database files
 *.db
 
-# Large data files
-
-* # Ignore large raw Yelp datasets
+# Ignore large raw Yelp datasets
 data/yelp_*.json
 
-# Ignore database files
-*.db
 
 # Ignore Mac system files
 .DS_Store
@@ -26,8 +22,5 @@ data/yelp_*.json
 
 assets/images/*.html
 
-.DS_Store
 
-data/processed/indy_philly_restaurant_aggregated.json
-data/*.json
-data/*.db
+
